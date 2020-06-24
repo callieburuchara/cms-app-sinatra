@@ -38,6 +38,12 @@ class AppTest < Minitest::Test
     assert_includes last_response.body, 'doesnotexist.txt does not exist'
     get '/'
     refute_includes last_response.body, 'doesnotexist.txt does not exist'
+  end
 
+  def test_markdown_file
+    get '/markdown.md'
+    assert_equal 200, last_response.status
+    assert_equal 'text/html;charset=utf-8', last_response['Content-Type']
+    assert_includes last_response.body, "<h2>This is a smaller headline</h2>"
   end
 end

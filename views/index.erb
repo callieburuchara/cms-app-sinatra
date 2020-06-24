@@ -7,7 +7,11 @@
 
     <ul>
       <% @files.each do |file| %>
-        <li><a href='/<%= file %>'><%= file %></a></li>
+        <li>
+          <a href='/<%= file %>'><%= file %></a> <br>
+          <a href='/<%= file %>/edit'>Edit</a>    
+          <br><br>    
+        </li>
       <% end %>
     </ul>
 
